@@ -3,6 +3,7 @@ stage('SCM checkout'){
 git'https://github.com/aparnabodala1/paytm.git'
 }
 stage('Compile-Package){
-sh 'mvn package'
+def mvnHome = tool name: 'MAVEN_HOME', type: 'maven'
+sh "${mvnHome}/bin/mvn package"
 }
 }
